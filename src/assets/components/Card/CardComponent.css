@@ -1,0 +1,15 @@
+.card-content {
+  min-height: 150px;  /* Ajusta este valor según tus necesidades */
+  overflow: auto; 
+  font-size: small;    /* Asegura que el texto se ajuste dentro del espacio disponible */
+}
+.card-title {
+  font-size: large;    /* Ajusta este valor según tus necesidades */
+}
+.price {
+  font-size: medium;
+  font-weight: bold;
+  align-self: flex-start; 
+  color: blue;   /* Ajusta este valor según tus necesidades */
+}
+```
