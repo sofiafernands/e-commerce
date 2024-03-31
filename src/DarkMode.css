@@ -1,0 +1,11 @@
+/* DarkMode.css */
+.light {
+    background-color: #fff;
+    color: black;
+  }
+  
+html body  .container.dark {
+    background-color: #333;
+    color: white;
+  }
+  

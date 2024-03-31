@@ -1,9 +1,11 @@
 import React from 'react';
 import { useCart } from '../../../context/CartContext';
 import { Link } from 'react-router-dom';
+import { useTheme } from '../../../context/ThemeContext';
 
 function NavBar({ searchTerm, handleSearch }) {
   const { cartItems } = useCart();
+  const { toggleTheme } = useTheme(); // Esto ahora está bien porque NavBar está dentro de ThemeProvider
 
   return (
     <nav className="navbar navbar-expand-lg">
@@ -61,6 +63,7 @@ function NavBar({ searchTerm, handleSearch }) {
           </div>
         </div>
       </div>
+      <button onClick={toggleTheme}>Cambiar Tema</button>
     </nav>
   );
 }

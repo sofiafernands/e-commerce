@@ -1,30 +1,38 @@
+// src/context/CartContext.jsx
 import React, { createContext, useContext, useEffect, useState } from 'react';
+import { useAuth } from './AuthContext'; // Asegúrate de ajustar la ruta
 
 const CartContext = createContext();
 
 export const useCart = () => useContext(CartContext);
 
 export const CartProvider = ({ children }) => {
-  //Se Inicializa el estado del carrito con los artículos almacenados en localStorage, si existen.
-  const [cartItems, setCartItems] = useState(() => {
-    const localData = localStorage.getItem('cartItems');
-    return localData ? JSON.parse(localData) : [];
-  });
+  const { user } = useAuth();
+  const [cartItems, setCartItems] = useState([]);
+
+  useEffect(() => {
+    // Reiniciar el carrito cuando el usuario cierre sesión
+    if (!user) {
+      setCartItems([]);
+    } else {
+      // restaurar el carrito del usuario al iniciar sesión
+      const savedCart = localStorage.getItem(`cart-${user.email}`);
+      if (savedCart) {
+        setCartItems(JSON.parse(savedCart));
+      }
+    }
+  }, [user]);
 
   const addToCart = (product) => {
     setCartItems((prevItems) => {
       const newItems = [...prevItems, product];
-      // Actualiza localStorage cada vez que se añade un nuevo producto al carrito.
-      localStorage.setItem('cartItems', JSON.stringify(newItems));
+      if (user) {
+        // Guardar el carrito actualizado en localStorage
+        localStorage.setItem(`cart-${user.email}`, JSON.stringify(newItems));
+      }
       return newItems;
     });
   };
-
-  //  Escucha los cambios en cartItems y actualiza localStorage.
-  // Este paso es útil si modificas cartItems en otro lugar fuera de addToCart.
-  useEffect(() => {
-    localStorage.setItem('cartItems', JSON.stringify(cartItems));
-  }, [cartItems]);
 
   return (
     <CartContext.Provider value={{ cartItems, addToCart }}>
