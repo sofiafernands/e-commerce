@@ -39,6 +39,8 @@ function App() {
               {filteredProducts.map((product) => (
                 <div className="col-md-2" key={product.id}>
                   <CardComponent
+                  className="single-product"
+                  id={product.id}
                     title={product.title}
                     description={product.description}
                     price={product.price}
