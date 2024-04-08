@@ -8,7 +8,7 @@ import { CartProvider } from '../src/context/CartContext.jsx';
 import Footer from './assets/components/Footer/Footer.jsx';
 import { AuthProvider } from './context/AuthContext.jsx';
 import { ThemeProvider } from './context/ThemeContext.jsx';
-import NotFound from './views/NotFound.jsx';
+import NotFound from './views/NotFound/NotFound.jsx';
 import ProductDetail from './views/ProductDetail.jsx';
 import LoginForm from './views/FormLogin.jsx/Login.jsx';
 
