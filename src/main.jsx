@@ -10,6 +10,7 @@ import { AuthProvider } from './context/AuthContext.jsx';
 import { ThemeProvider } from './context/ThemeContext.jsx';
 import NotFound from './views/NotFound.jsx';
 import ProductDetail from './views/ProductDetail.jsx';
+import LoginForm from './views/FormLogin.jsx/Login.jsx';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -25,6 +26,7 @@ root.render(
             <Route path="/cart" element={<CartDetails />} />
             <Route path='*' element={<NotFound />} />
             <Route path="/product/:id" element={<ProductDetail />} />
+            < Route path="/login" element={< LoginForm /> } />
           </Routes>
           <Footer />
         </Router>

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { useAuth } from '../../../context/AuthContext.jsx';
+import { useAuth } from '../../context/AuthContext.jsx';
+import { Link } from 'react-router-dom';
+import './FormLogin.css';
 
 function LoginForm() {
   const [name, setName] = useState('');
@@ -13,7 +15,7 @@ function LoginForm() {
 
   if (user) {
     return (
-      <div>
+      <div className="form">
         <p>Bienvenido, {user.name}!</p>
         <button onClick={logout}>Cerrar Sesión</button>
       </div>
@@ -21,8 +23,9 @@ function LoginForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="form" onSubmit={handleSubmit}>
       <input
+        className="form-input"
         type="text"
         placeholder="Nombre"
         value={name}
@@ -30,13 +33,15 @@ function LoginForm() {
         required
       />
       <input
+        className="form-input"
         type="email"
         placeholder="Email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         required
       />
-      <button type="submit">Iniciar Sesión</button>
+      <button className="form-button" type="submit">Iniciar Sesión</button>
+      <Link className="form-link" to="/">Volver a inicio</Link>
     </form>
   );
 }

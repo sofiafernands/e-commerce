@@ -64,6 +64,7 @@ function NavBar({ searchTerm, handleSearch }) {
         </div>
       </div>
       <button onClick={toggleTheme}>Cambiar Tema</button>
+      <Link to="/login" className="nav-link">Iniciar Sesión</Link>
     </nav>
   );
 }
