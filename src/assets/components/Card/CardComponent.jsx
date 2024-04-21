@@ -3,9 +3,13 @@ import './CardComponent.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import { useCart } from '../../../context/CartContext.jsx';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../../context/AuthContext.jsx';
+import useProducts from '../AddProductModal/AddProductModal.jsx';
 
 
 function CardComponent({ id, title, description, price, image }) {
+    const { user} = useAuth();
+    const { deleProduct } = useProducts();
     const navigate = useNavigate();
     const { addToCart } = useCart();
 
@@ -14,6 +18,11 @@ function CardComponent({ id, title, description, price, image }) {
     const goToDetail = () => {
         navigate(`/product/${id}`);
     };
+
+    const handleDelete = (e) => {
+        e.stopPropagation();
+        deleteProduct(id);
+      };
 
     return (
         <div className="card" style={{ width: "12rem" }} onClick={goToDetail}>
@@ -30,6 +39,14 @@ function CardComponent({ id, title, description, price, image }) {
             }} className="btn btn-primary">
                 Añadir a la cesta
             </button>
+            {
+                user && user.isAdmin && (
+                    <>
+                        <button onClick={() => editProduct(id)}>Editar</button>
+                        <button onClick={handleDelete} className="btn btn-danger">Eliminar</button>
+                    </>
+                )
+            }
 
         </div>
 

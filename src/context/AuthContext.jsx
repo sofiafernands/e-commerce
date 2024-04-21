@@ -11,21 +11,18 @@ export const AuthProvider = ({ children }) => {
     return user ? JSON.parse(user) : null;
   });
 
-  const login = (userData) => {
+  const login = (email) => {
+    const isAdmin = email.includes('@admin');
+    const userData = { email, isAdmin };
     setUser(userData);
     localStorage.setItem('user', JSON.stringify(userData));
   };
-
-  // src/context/AuthContext.js
-const logout = () => {
-  if (user) {
-    //Eliminar el carrito del localStorage al cerrar sesión
-    localStorage.removeItem(`cart-${user.email}`);
-  }
-  setUser(null);
-  localStorage.removeItem('user');
-};
-
+  
+  const logout = () => {
+    setUser(null);
+    localStorage.removeItem('user');
+    localStorage.removeItem('cart');
+  };
 
   return (
     <AuthContext.Provider value={{ user, login, logout }}>

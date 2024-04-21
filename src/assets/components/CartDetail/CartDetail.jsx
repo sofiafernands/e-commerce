@@ -15,7 +15,7 @@ function CartDetails() {
           {cartItems.map((item, index) => (
             <li key={index}>
               {item.title} - Cantidad: 1 - Precio: ${item.price}
-              {/* Asumiendo que cada producto añadido al carrito es una única unidad */}
+              
             </li>
           ))}
         </ul>
