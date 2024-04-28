@@ -2,6 +2,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import data from '../../data.json'; 
+import NavBar from '../assets/components/NavBar/NavBar';
 
 function ProductDetail() {
   const { id } = useParams();
@@ -15,12 +16,14 @@ function ProductDetail() {
 
   return (
     <div>
+      <NavBar />
       <h2>{producto.title}</h2>
       <img src={producto.image} alt={producto.title} style={{width:"300px"}} />
       <h3>{producto.category}</h3>
       <p>{producto.description}</p>
       <p>${producto.price}</p>
     </div>
+    
   );
 }
 

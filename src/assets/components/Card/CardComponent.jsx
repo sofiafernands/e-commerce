@@ -4,7 +4,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { useCart } from '../../../context/CartContext.jsx';
 import { useNavigate } from 'react-router-dom';
 
-
 function CardComponent({ id, title, description, price, image }) {
     const navigate = useNavigate();
     const { addToCart } = useCart();
@@ -14,6 +13,8 @@ function CardComponent({ id, title, description, price, image }) {
     const goToDetail = () => {
         navigate(`/product/${id}`);
     };
+
+    const isAdmin = localStorage.getItem("role") === "admin";
 
     return (
         <div className="card" style={{ width: "12rem" }} onClick={goToDetail}>
@@ -30,9 +31,23 @@ function CardComponent({ id, title, description, price, image }) {
             }} className="btn btn-primary">
                 Añadir a la cesta
             </button>
-
+            {isAdmin && (
+                <div>
+                    <button onClick={(e) => {
+                        e.stopPropagation();
+                        // Aquí iría el código para editar el producto
+                    }} className="btn btn-primary">
+                        Editar
+                    </button>
+                    <button onClick={(e) => {
+                        e.stopPropagation();
+                        // Aquí iría el código para eliminar el producto
+                    }} className="btn btn-primary">
+                        Eliminar
+                    </button>
+                </div>
+            )}
         </div>
-
     );
 }
 

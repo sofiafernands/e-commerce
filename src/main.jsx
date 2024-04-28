@@ -11,6 +11,7 @@ import { ThemeProvider } from './context/ThemeContext.jsx';
 import NotFound from './views/NotFound/NotFound.jsx';
 import ProductDetail from './views/ProductDetail.jsx';
 import LoginForm from './views/FormLogin.jsx/Login.jsx';
+//import NavBar from './assets/components/NavBar/NavBar.jsx';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

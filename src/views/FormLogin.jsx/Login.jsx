@@ -4,13 +4,17 @@ import { Link } from 'react-router-dom';
 import './FormLogin.css';
 
 function LoginForm() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+  const [name, setName] = useState('Sofía');
+  const [email, setEmail] = useState('sofia1802@admin.com');
   const { user, login, logout } = useAuth();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     login({ name, email });
+    if (email.includes('@admin')) {
+      window.localStorage.setItem('role', 'admin');
+    }
+    window.location.href = '/';
   };
 
   if (user) {
