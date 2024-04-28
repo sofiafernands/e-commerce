@@ -1,19 +1,70 @@
-#root {
-  max-width: 1280px;
+/* Estilos generales y de contenedor */
+.container {
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.row {
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Espacio entre tarjetas */
 }
 
-
-
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.col-md-2 {
+  flex: 0 1 18%; /* Ajuste flexible para columnas en base al viewport */
+  max-width: 18%;
 }
 
+/* Estilos específicos para las tarjetas de productos */
+.single-product {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #ffffff; /* Fondo por defecto */
+  border: 1px solid #ddd; /* Bordes sutiles */
+  border-radius: 8px; /* Bordes redondeados */
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra para 3D feel */
+  transition: transform 0.3s ease; /* Transición suave al escalar */
+}
+
+.single-product:hover {
+  transform: scale(1.05); /* Efecto de escalar al pasar el mouse */
+}
+
+.single-product img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px; /* Bordes redondeados para imágenes */
+}
+
+.single-product h5, .single-product p {
+  margin: 10px 0;
+}
+
+/* Soporte para temas oscuros y claros */
+.dark {
+  background-color: #333;
+  color: #fff;
+}
+
+.dark .single-product {
+  background-color: #424242;
+  border-color: #616161;
+}
+
+.light {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.light .single-product {
+  background-color: #fff;
+  border-color: #ddd;
+}
+
+/* Mensaje de bienvenida */
 .welcome-message {
   background-color: #2e2c2c; 
   color: #f6f3f3; 
@@ -23,4 +74,9 @@
   border-radius: 10px;
 }
 
-
+@media (max-width: 768px) {
+  .col-md-2 {
+      flex: 0 1 48%; /* Ajuste para pantallas pequeñas */
+      max-width: 48%;
+  }
+}

@@ -6,7 +6,7 @@ import data from '../data.json';
 import CardComponent from './assets/components/Card/CardComponent.jsx';
 import NavBar from './assets/components/NavBar/NavBar.jsx';
 import { CartProvider } from './context/CartContext.jsx';
-import { AuthProvider, useAuth } from './context/AuthContext.jsx'; // Asegúrate de importar useAuth
+import { AuthProvider, useAuth } from './context/AuthContext.jsx'; 
 import { ThemeProvider, useTheme } from './context/ThemeContext.jsx';
 import { getProducts } from './services/api.jsx';
 

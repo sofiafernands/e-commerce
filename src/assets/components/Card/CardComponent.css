@@ -1,15 +1,100 @@
-.card-content {
-  min-height: 150px;  /* Ajusta este valor según tus necesidades */
-  overflow: auto; 
-  font-size: small;    /* Asegura que el texto se ajuste dentro del espacio disponible */
+/* Estilos básicos de la tarjeta */
+.card {
+  cursor: pointer;
+  transition: box-shadow 0.3s ease-in-out;
+  object-fit: contain
 }
+
+.card:hover {
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.card-img-top {
+  object-fit: contain; 
+  background-color: #f8f9fa; 
+
+.card-body {
+  padding: 10px;
+}
+
 .card-title {
-  font-size: large;    /* Ajusta este valor según tus necesidades */
+  font-size: 1rem;
+  color: #333;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
 }
+
+.card-title:hover {
+  color: #00f677; 
+}
+
+.card-text {
+  flex-grow: 1;
+  padding-bottom: 10px;
+}
+
 .price {
-  font-size: medium;
   font-weight: bold;
-  align-self: flex-start; 
-  color: blue;   /* Ajusta este valor según tus necesidades */
+  color: #28a745;
+  cursor: pointer;
 }
-```
+
+.price:hover {
+  color: #155724; 
+}
+
+/* Botones bajo la tarjeta */
+.btn-primary {
+  margin: 5px;
+  width: calc(50% - 10px); /* Ajuste de ancho para que dos botones ocupen todo el espacio bajo la tarjeta */
+}
+
+/* Modales y sus componentes */
+.modal-title {
+  color: #495057;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Formulario dentro del modal */
+.form-label {
+  margin-bottom: 0.5rem;
+  color: #666;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+@media (max-width: 576px) {
+  .card {
+      width: 100%;
+  }
+
+  .btn-primary {
+      width: 100%; /* Botones se expanden en pantallas pequeñas */
+  }
+}

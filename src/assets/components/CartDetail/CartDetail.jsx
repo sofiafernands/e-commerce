@@ -1,7 +1,7 @@
 import React from 'react';
 import { useCart } from '../../../context/CartContext.jsx'; 
 import NavBar from '../NavBar/NavBar.jsx';
-import './CartDetail.css'; // Importa el archivo CSS
+import './CartDetail.css'; 
 
 function CartDetails() {
   const { cartItems } = useCart();
