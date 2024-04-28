@@ -1,4 +1,3 @@
-// src/context/CartContext.jsx
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { useAuth } from './AuthContext'; // Asegúrate de ajustar la ruta
 

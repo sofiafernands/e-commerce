@@ -15,10 +15,15 @@ export const addProduct = async (product) => {
 };
 
 export const updateProduct = async (id, product) => {
-  const response = await api.put(`/products/${id}`, product);
-  return response.data;
+  console.log('Updating product:', id, product);
+  try {
+    const response = await api.put(`/products/${id}`, product);
+    console.log('Response:', response);
+    return response.data;
+  } catch (error) {
+    console.error('Error updating product:', error);
+  }
 };
-
 export const deleteProduct = async (id) => {
   const response = await api.delete(`/products/${id}`);
   return response.data;

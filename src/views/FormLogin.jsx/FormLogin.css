@@ -1,4 +1,3 @@
-/* LoginForm.css */
 
 .form {
     display: flex;
@@ -8,6 +7,7 @@
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+    padding-bottom: 10px;
   }
   
   .form input {
@@ -21,13 +21,14 @@
     padding: 10px;
     border-radius: 5px;
     border: none;
-    background-color: #007BFF;
+    background-color: #238686;
     color: white;
     cursor: pointer;
+    margin-bottom: 10px;
   }
   
   .form button:hover {
-    background-color: #0056b3;
+    background-color: #2b06e2;
   }
   
   .form a {

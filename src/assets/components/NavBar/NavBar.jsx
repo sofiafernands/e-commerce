@@ -2,10 +2,25 @@ import React from 'react';
 import { useCart } from '../../../context/CartContext';
 import { Link } from 'react-router-dom';
 import { useTheme } from '../../../context/ThemeContext';
+import { FaShoppingCart } from "react-icons/fa";
+import { MdOutlineContactPhone } from "react-icons/md";
+import { FaUser } from "react-icons/fa";
+import { useAuth } from '../../../context/AuthContext'; // Asegúrate de tener un AuthContext
+
 
 function NavBar({ searchTerm, handleSearch }) {
   const { cartItems } = useCart();
-  const { toggleTheme } = useTheme(); // Esto ahora está bien porque NavBar está dentro de ThemeProvider
+  const { toggleTheme } = useTheme(); 
+  const { currentUser, logout } = useAuth(); // Obtener el usuario actual y la función de logout
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+    } catch {
+      console.log('Fallo al cerrar sesión');
+    }
+  };
+
 
   return (
     <nav className="navbar navbar-expand-lg">
@@ -41,7 +56,8 @@ function NavBar({ searchTerm, handleSearch }) {
           </form>
           <div className="ms-3">
             <Link to="/cart" className="nav-link">
-              Carrito ({cartItems.length} ítems)
+              <FaShoppingCart />
+ ({cartItems.length} ítems)
             </Link>
 
           </div>
@@ -56,15 +72,19 @@ function NavBar({ searchTerm, handleSearch }) {
             <a href="https://instagram.com" className="nav-link">
               <i className="fab fa-instagram"></i>
             </a>
-            {/* Enlace a sección de contacto */}
+           
             <a href="mailto:contacto@mitienda.com" className="nav-link">
-              contacto@mitienda.com
+            <MdOutlineContactPhone/>
             </a>
           </div>
         </div>
       </div>
-      <button onClick={toggleTheme}>Cambiar Tema</button>
-      <Link to="/login" className="nav-link">Iniciar Sesión</Link>
+      {currentUser ? (
+        <button onClick={handleLogout} className="nav-link">Cerrar Sesión</button>
+      ) : (
+        <Link to="/login" className="nav-link"><FaUser />
+        </Link>
+      )}
     </nav>
   );
 }

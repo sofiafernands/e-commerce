@@ -20,8 +20,9 @@ function LoginForm() {
   if (user) {
     return (
       <div className="form">
-        <p>Bienvenido, {user.name}!</p>
+        <p>Bienvenido, {user.name} Disfruta de nuestra variedad de productos!</p>
         <button onClick={logout}>Cerrar Sesión</button>
+        <button onClick={() => window.location.href = '/'}>Volver a inicio</button>
       </div>
     );
   }

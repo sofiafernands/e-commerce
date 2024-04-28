@@ -1,0 +1,28 @@
+/* CartDetails.css */
+
+.cart-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.cart-details h2 {
+  margin-bottom: 20px;
+}
+
+.cart-details ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.cart-details li {
+  margin-bottom: 10px;
+  background-color: #f8f8f8;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.cart-details p {
+  color: red;
+}
