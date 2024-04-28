@@ -4,16 +4,17 @@ import { Link } from 'react-router-dom';
 import { useTheme } from '../../../context/ThemeContext';
 import { FaShoppingCart } from "react-icons/fa";
 import { MdOutlineContactPhone } from "react-icons/md";
-import { FaUser,FaFacebookSquare  } from "react-icons/fa";
+import { FaUser, FaFacebookSquare } from "react-icons/fa";
 import { GrInstagram } from "react-icons/gr";
-import { useAuth } from '../../../context/AuthContext'; 
+import { MdAddComment } from "react-icons/md";
+import { useAuth } from '../../../context/AuthContext';
 import './Navbar.css';
 
 
 
 function NavBar({ searchTerm, handleSearch }) {
   const { cartItems } = useCart();
-  const { toggleTheme } = useTheme(); 
+  const { toggleTheme } = useTheme();
   const { currentUser, logout } = useAuth();
 
   const handleLogout = async () => {
@@ -54,23 +55,23 @@ function NavBar({ searchTerm, handleSearch }) {
           <div className="ms-3">
             <Link to="/cart" className="nav-link">
               <FaShoppingCart />
- ({cartItems.length} ítems)
+              ({cartItems.length} ítems)
             </Link>
 
           </div>
           <div className="ms-3 d-flex align-items-center">
             {/* Iconos de redes sociales */}
             <a href="https://facebook.com" className="nav-link">
-            <FaFacebookSquare style={{height:"30px"}}/>
+              <FaFacebookSquare style={{ height: "30px" }} />
 
             </a>
-            
+
             <a href="https://instagram.com" className="nav-link">
-            <GrInstagram style={{margin:"10px"}} />
+              <GrInstagram style={{ margin: "10px" }} />
             </a>
-           
+
             <a href="mailto:contacto@mitienda.com" className="nav-link">
-            <MdOutlineContactPhone style={{height:"60px"}}/>
+              <MdOutlineContactPhone style={{ height: "60px" }} />
             </a>
           </div>
         </div>
@@ -81,6 +82,7 @@ function NavBar({ searchTerm, handleSearch }) {
         <Link to="/login" className="nav-link"><FaUser />
         </Link>
       )}
+      <Link to="/addproduct" className="nav-link m-3"> <MdAddComment /> </Link>
     </nav>
   );
 }

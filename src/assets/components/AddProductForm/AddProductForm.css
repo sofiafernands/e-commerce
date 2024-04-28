@@ -1,0 +1,100 @@
+/* AddProductForm.css */
+
+/* Estilos generales del formulario */
+form {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-label {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  .form-control {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  
+  .form-control:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+  
+  button[type="submit"] {
+    width: 100%;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: 10px;
+    font-size: 18px;
+    line-height: 1.5;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+  }
+  
+  /* Estilos para Toast */
+  .toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    min-width: 250px;
+  }
+  
+  .toast-header {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .toast-body {
+    line-height: 1.5;
+  }
+  
+  /* Estilo para el link de volver */
+  .back {
+    display: block;
+    width: max-content;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #f8f9fa;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #007bff;
+  }
+  
+  .back:hover {
+    text-decoration: underline;
+  }
+  

@@ -11,6 +11,7 @@ import { ThemeProvider } from './context/ThemeContext.jsx';
 import NotFound from './views/NotFound/NotFound.jsx';
 import ProductDetail from './views/ProductDetail.jsx';
 import LoginForm from './views/FormLogin.jsx/Login.jsx';
+import AddProductForm from './assets/components/AddProductForm/AddProductForm.jsx';
 //import NavBar from './assets/components/NavBar/NavBar.jsx';
 
 
@@ -28,6 +29,7 @@ root.render(
             <Route path='*' element={<NotFound />} />
             <Route path="/product/:id" element={<ProductDetail />} />
             < Route path="/login" element={< LoginForm /> } />
+            < Route path="/addproduct" element={< AddProductForm /> } />
           </Routes>
           <Footer />
         </Router>

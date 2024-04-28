@@ -6,9 +6,13 @@ import NavBar from '../assets/components/NavBar/NavBar';
 
 function ProductDetail() {
   const { id } = useParams();
-  console.log("ID del producto:", id); // Imprime el id del producto en la consola
+  console.log("ID del producto:", id); 
+  // Imprime el id del producto en la consola
 
   const producto = data.find((product) => product.id === Number(id));
+
+  console.log("Datos:", data);
+console.log("Producto encontrado:", producto);
 
   if (!producto) {
     return <h2>Producto no encontrado</h2>;
