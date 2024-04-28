@@ -4,14 +4,17 @@ import { Link } from 'react-router-dom';
 import { useTheme } from '../../../context/ThemeContext';
 import { FaShoppingCart } from "react-icons/fa";
 import { MdOutlineContactPhone } from "react-icons/md";
-import { FaUser } from "react-icons/fa";
-import { useAuth } from '../../../context/AuthContext'; // Asegúrate de tener un AuthContext
+import { FaUser,FaFacebookSquare  } from "react-icons/fa";
+import { GrInstagram } from "react-icons/gr";
+import { useAuth } from '../../../context/AuthContext'; 
+import './Navbar.css';
+
 
 
 function NavBar({ searchTerm, handleSearch }) {
   const { cartItems } = useCart();
   const { toggleTheme } = useTheme(); 
-  const { currentUser, logout } = useAuth(); // Obtener el usuario actual y la función de logout
+  const { currentUser, logout } = useAuth();
 
   const handleLogout = async () => {
     try {
@@ -25,7 +28,7 @@ function NavBar({ searchTerm, handleSearch }) {
   return (
     <nav className="navbar navbar-expand-lg">
       <div className="container-fluid">
-        <Link to="/" className="navbar-brand" href="#">MiTienda</Link>
+        <Link to="/" className="navbar-brand">TodoClick</Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -33,12 +36,6 @@ function NavBar({ searchTerm, handleSearch }) {
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
               <Link to="/" className="nav-link">Inicio</Link>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">Categorías</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">Ofertas</a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">Contacto</a>
@@ -64,17 +61,16 @@ function NavBar({ searchTerm, handleSearch }) {
           <div className="ms-3 d-flex align-items-center">
             {/* Iconos de redes sociales */}
             <a href="https://facebook.com" className="nav-link">
-              <i className="fab fa-facebook-f"></i>
+            <FaFacebookSquare style={{height:"30px"}}/>
+
             </a>
-            <a href="https://twitter.com" className="nav-link">
-              <i className="fab fa-twitter"></i>
-            </a>
+            
             <a href="https://instagram.com" className="nav-link">
-              <i className="fab fa-instagram"></i>
+            <GrInstagram style={{margin:"10px"}} />
             </a>
            
             <a href="mailto:contacto@mitienda.com" className="nav-link">
-            <MdOutlineContactPhone/>
+            <MdOutlineContactPhone style={{height:"60px"}}/>
             </a>
           </div>
         </div>

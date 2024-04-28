@@ -1,3 +1,14 @@
-/* .navbar {
-    background-color: rgb(44, 46, 46);
-} */
+.navbar-brand {
+    font-size: 2rem; /* Tamaño de fuente más grande */
+    font-weight: 700; /* Fuente más audaz */
+    color: #ff6347; /* Color de texto diferente */
+    font-family: 'Roboto', sans-serif; /* Fuente diferente */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra de texto */
+}
+
+#navbarSupportedContent {
+    font-size: 1.2rem; /* Tamaño de fuente más grande */
+}
+.navbar-nav li {
+    font-size: 1.2rem; /* Tamaño de fuente más grande */
+}
