@@ -37,6 +37,7 @@ function CardComponent({ id:id, title, description, price, image }) {
         handleEditShow();
       };
     const isAdmin = localStorage.getItem("role") === "admin";
+    const isLoggedIn = Boolean(localStorage.getItem("user"));
 
     return (
         <div>
@@ -52,11 +53,15 @@ function CardComponent({ id:id, title, description, price, image }) {
                 <div> 
                 <button onClick={(e) => {
                     e.stopPropagation();
+                    if (isLoggedIn) {
                     addToCart({ title, description, price, image });
+                    } else {
+                    navigate('/login');
+                    }
                 }} className="btn btn-primary">
                     Añadir a la cesta
                 </button>
-                {isAdmin && (
+                {isAdmin && isLoggedIn && (
                     <div>
                         <button onClick={(e) => {
                           e.stopPropagation();

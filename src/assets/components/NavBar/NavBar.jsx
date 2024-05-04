@@ -2,11 +2,10 @@ import React from 'react';
 import { useCart } from '../../../context/CartContext';
 import { Link } from 'react-router-dom';
 import { useTheme } from '../../../context/ThemeContext';
-import { FaShoppingCart } from "react-icons/fa";
-import { MdOutlineContactPhone } from "react-icons/md";
-import { FaUser, FaFacebookSquare } from "react-icons/fa";
+import { FaShoppingCart, FaUser, FaFacebookSquare } from "react-icons/fa";
+import { MdOutlineContactPhone, MdAddComment } from "react-icons/md";
 import { GrInstagram } from "react-icons/gr";
-import { MdAddComment } from "react-icons/md";
+import { IoLogoWhatsapp } from "react-icons/io";
 import { useAuth } from '../../../context/AuthContext';
 import './Navbar.css';
 
@@ -15,7 +14,7 @@ import './Navbar.css';
 function NavBar({ searchTerm, handleSearch }) {
   const { cartItems } = useCart();
   const { toggleTheme } = useTheme();
-  const { currentUser, logout } = useAuth();
+  const { user, logout } = useAuth();
 
   const handleLogout = async () => {
     try {
@@ -25,6 +24,7 @@ function NavBar({ searchTerm, handleSearch }) {
     }
   };
 
+  const isAdmin = user && user.email.includes("admin.com");
 
   return (
     <nav className="navbar navbar-expand-lg">
@@ -39,7 +39,10 @@ function NavBar({ searchTerm, handleSearch }) {
               <Link to="/" className="nav-link">Inicio</Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">Contacto</a>
+              <a className="nav-link"
+                href="https://wa.me/1234567890"
+                title='Whatsapp'
+                target="_blank" >Contacto <IoLogoWhatsapp /></a>
             </li>
           </ul>
           <form className="d-flex" role="search">
@@ -52,37 +55,44 @@ function NavBar({ searchTerm, handleSearch }) {
               onChange={handleSearch}
             />
           </form>
-          <div className="ms-3">
-            <Link to="/cart" className="nav-link">
-              <FaShoppingCart />
-              ({cartItems.length} ítems)
-            </Link>
+          {user ? (
+            <div className="ms-3">
+              <Link to="/cart" className="nav-link">
+                <FaShoppingCart />
+                ({cartItems.length} Articulos)
+              </Link>
+            </div>) : (
+            <p></p>
+          )}
 
-          </div>
           <div className="ms-3 d-flex align-items-center">
-            {/* Iconos de redes sociales */}
-            <a href="https://facebook.com" className="nav-link">
+            <a href="https://facebook.com" className="nav-link" title='Facebook'  target="_blank">
               <FaFacebookSquare style={{ height: "30px" }} />
-
             </a>
-
-            <a href="https://instagram.com" className="nav-link">
+            <a href="https://instagram.com" className="nav-link" title='Instagram'  target="_blank">
               <GrInstagram style={{ margin: "10px" }} />
             </a>
-
-            <a href="mailto:contacto@mitienda.com" className="nav-link">
+            <a href="mailto:contacto@mitienda.com" className="nav-link" title='Correo electronico'  target="_blank">
               <MdOutlineContactPhone style={{ height: "60px" }} />
             </a>
           </div>
         </div>
       </div>
-      {currentUser ? (
-        <button onClick={handleLogout} className="nav-link">Cerrar Sesión</button>
+      <Link to="/login" className="nav-link" title={user ? "cerrar sesion" : "iniciar sesion"}>
+        <FaUser />
+      </Link>
+      {user ? (
+        <>
+          {isAdmin && (
+            <Link to="/addproduct" className="nav-link m-3">
+              <MdAddComment />
+            </Link>
+          )}
+        </>
       ) : (
-        <Link to="/login" className="nav-link"><FaUser />
-        </Link>
+        <p></p>
       )}
-      <Link to="/addproduct" className="nav-link m-3"> <MdAddComment /> </Link>
+
     </nav>
   );
 }

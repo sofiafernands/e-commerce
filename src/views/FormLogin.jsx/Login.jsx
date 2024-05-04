@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import './FormLogin.css';
 
 function LoginForm() {
-  const [name, setName] = useState('Sofía');
-  const [email, setEmail] = useState('sofia1802@admin.com');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
   const { user, login, logout } = useAuth();
 
   const handleSubmit = (e) => {
