@@ -29,6 +29,7 @@ function LoginForm() {
   return (
     <form className="form" onSubmit={handleSubmit(onSubmit)}>
       <input
+        style={{ color: 'red' }}
         className="form-input"
         type="text"
         placeholder="Nombre"
@@ -37,6 +38,7 @@ function LoginForm() {
       {errors.name && <p className="error">{errors.name.message}</p>}
 
       <input
+        style={{ color: 'red' }}
         className="form-input"
         type="email"
         placeholder="Email"
@@ -51,6 +53,7 @@ function LoginForm() {
       {errors.email && <p className="error">{errors.email.message}</p>}
 
       <input
+        style={{ color: 'red' }}
         className="form-input"
         type="password"
         placeholder="Contraseña"
@@ -59,6 +62,7 @@ function LoginForm() {
       {errors.password && <p className="error">{errors.password.message}</p>}
 
       <input
+        style={{ color: 'red' }}
         className="form-input"
         type="password"
         placeholder="Repetir Contraseña"
