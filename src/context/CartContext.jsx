@@ -1,9 +1,9 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { useAuth } from './AuthContext'; 
 
-const CartContext = createContext();
+//const CartContext = createContext();
 
-export const useCart = () => useContext(CartContext);
+//export const useCart = () => useContext(CartContext);
 
 export const CartProvider = ({ children }) => {
   const { user } = useAuth();

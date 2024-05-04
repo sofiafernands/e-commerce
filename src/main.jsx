@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import App from './App';
 import CartDetails from '../src/assets/components/CartDetail/CartDetail.jsx'; 
 import { CartProvider } from '../src/context/CartContext.jsx'; 
-//import NavBar from './assets/components/NavBar/NavBar.jsx';
 import Footer from './assets/components/Footer/Footer.jsx';
 import { AuthProvider } from './context/AuthContext.jsx';
 import { ThemeProvider } from './context/ThemeContext.jsx';
@@ -12,7 +11,8 @@ import NotFound from './views/NotFound/NotFound.jsx';
 import ProductDetail from './views/ProductDetail.jsx';
 import LoginForm from './views/FormLogin.jsx/Login.jsx';
 import AddProductForm from './assets/components/AddProductForm/AddProductForm.jsx';
-//import NavBar from './assets/components/NavBar/NavBar.jsx';
+import { Provider } from 'react-redux';
+import store from './redux/store/index.js';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -20,6 +20,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <ThemeProvider>
+      <Provider store={store}>
     <AuthProvider>
       <CartProvider>
         <Router>
@@ -35,6 +36,7 @@ root.render(
         </Router>
       </CartProvider>
     </AuthProvider>
+    </Provider>
     </ThemeProvider>
   </React.StrictMode>
 );

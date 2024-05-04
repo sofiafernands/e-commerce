@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux'; // Agrega esta línea
+import { fetchProducts } from '../src/redux/thunks/productThunks'; // Agrega esta línea
 import './App.css';
 import './DarkMode.css';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -11,7 +13,8 @@ import { ThemeProvider, useTheme } from './context/ThemeContext.jsx';
 import { getProducts } from './services/api.jsx';
 
 function App() {
-  const [searchTerm, setSearchTerm] = useState('');
+  const searchTerm = useSelector(state => state.searchTerm);
+  const dispatch = useDispatch(); // Agrega esta línea
   const { theme } = useTheme(); // Usar el tema actual
   const { user } = useAuth(); // Obtener el usuario actual
   const [products, setProducts] = useState([]);
