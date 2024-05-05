@@ -11,13 +11,24 @@ Necesitarás tener instalado Node.js y npm en tu máquina local. Puedes descarga
 Instalación
 
 1- Clona el repositorio
+
 **************
-2. Navega hasta el directorio del proyecto 
+
+2. Navega hasta el directorio del proyecto
+
 ***********
+
 3.Instala las dependencias
+
 npm install
+
 4.Inicia el servidor de desarrollo
+
 npm start
+
+5. Inicializa el servidor de la api en una terminal diferente a las del front
+
+json-server --watch db.json --port 3001
 
 Ahora deberías poder ver el proyecto en localhost:5173 en tu navegador.
 
@@ -25,5 +36,9 @@ Uso
 Los usuarios pueden registrarse en la aplicación proporcionando un correo electrónico y una contraseña. La contraseña debe tener al menos 6 caracteres. Los usuarios también pueden iniciar sesión en una cuenta existente.
 
 Construido con
+Vite
+Npm server
+Css
+Bootstrap
 React - La biblioteca de JavaScript utilizada
 react-hook-form - Biblioteca para la validación de formularios
