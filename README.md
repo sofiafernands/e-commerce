@@ -1,5 +1,6 @@
 TodoClick - tienda virtual
-Este es un proyecto de inicio de sesión y registro de usuarios. Los usuarios pueden crear una cuenta proporcionando su correo electrónico y una contraseña. También pueden iniciar sesión en una cuenta existente.
+
+Este es un proyecto de inicio de sesión y registro de usuarios el cual podran obtener una tienda virtual con diferentes roles, admin/user. Ambos roles con direntes funcionalidades. Los usuarios pueden crear una cuenta proporcionando su correo electrónico(admin.con o usuario corriente) y una contraseña. También pueden iniciar sesión en una cuenta existente.
 
 Comenzando
 Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas.
